@@ -1,0 +1,138 @@
+import os
+import csv
+import random
+import boto3
+import os
+
+
+def txtToMp3(txt_file_path):
+    with open(txt_file_path, 'r') as file:
+        contents = file.readlines()
+    first_line = contents[0].strip()
+    os.makedirs(first_line)
+    title_file_path = os.path.join(first_line, 'title.txt')
+    with open(title_file_path, 'w') as title_file:
+        title_file.write(first_line)
+    title_file_path = os.path.join(first_line, 'author.txt')
+    second_line = contents[1].strip()
+    with open(title_file_path, 'w') as title_file:
+        title_file.write(second_line)
+    new_file_path = os.path.join(first_line, txt_file_path)
+    with open(txt_file_path, 'r') as file:
+        lines = file.readlines()
+    with open(new_file_path, 'w') as new_file:
+        for line in lines:
+            line = line.strip()
+            if line.startswith('(') and line.endswith(')'):
+                line = line[1:-1]
+                new_file.write("NARRATOR\n")
+            new_file.write(line + '\n')
+    with open(new_file_path, 'r') as file:
+        lines = file.readlines()
+    with open(new_file_path, 'w') as new_file:
+        for line in lines:
+            if line != '\n':
+                new_file.write(line)
+    with open(new_file_path, 'r') as file:
+        lines = file.readlines()
+    with open(new_file_path, 'w') as new_file:
+        for line in lines[2:]:
+            new_file.write(line)
+    new_new_file_path = new_file_path.replace('.txt', '.csv')
+    with open(new_file_path, 'r') as file:
+        lines = file.readlines()
+
+    odd_lines = lines[::2]
+    even_lines = lines[1::2]
+
+    with open(new_new_file_path, 'w', newline='') as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow(['Character', 'Line'])
+        for odd, even in zip(odd_lines, even_lines):
+            writer.writerow([odd.strip(), even.strip()])
+    os.remove(new_file_path)
+    
+    
+    #Replace with Jisu's code to predict gender
+    with open(new_new_file_path, 'r') as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    header = rows[0]
+    header.append('Gender')
+    for row in rows[1:]:
+        character = row[0]
+        if character == 'NARRATOR' or character == 'FATHER':
+            row.append('Male')
+        else:
+            row.append('Female')
+    with open(new_new_file_path, 'w', newline='') as new_file:
+        writer = csv.writer(new_file)
+        writer.writerows(rows)
+
+    #Replace with Jisu's code to predict emotion
+    with open(new_new_file_path, 'r') as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+    header = rows[0]
+    header.append('Emotion')
+    for row in rows[1:]:
+        emotion = random.choice(['Positive', 'Neutral', 'Negative'])
+        row.append(emotion)
+    with open(new_new_file_path, 'w', newline='') as new_file:
+        writer = csv.writer(new_file)
+        writer.writerows(rows)
+
+    #go through each row in the csv and convert the text to mp3
+    with open(new_new_file_path, 'r') as csv_file:
+        reader = csv.reader(csv_file)
+        rows = list(reader)
+        header = rows[0]
+        rows = rows[1:]
+    #assign each character to a specific voice
+    female_voices = ['Olivia', 'Amy', 'Danielle', 'Salli', 'Kimberly', 'Kendra', 'Joanna', 'Ruth']
+    male_voices = ['Brian', 'Arthur', 'Gregory', 'Matthew', 'Joey', 'Stephen']
+    character_voice_dict = {}
+    for row in rows:
+        character = row[0]
+        if character not in character_voice_dict:
+            if row[2] == 'Male':
+                voice = random.choice(male_voices)
+                male_voices.remove(voice)
+            else:    
+                voice = random.choice(female_voices)
+                female_voices.remove(voice)
+            character_voice_dict[character] = voice
+    output_folder = os.path.join(first_line, 'audio_files')  # Specify the folder to save the audio files in the directory you created earlier
+    os.makedirs(output_folder, exist_ok=True)  # Create the output folder if it doesn't exist
+
+    os.environ['AWS_ACCESS_KEY_ID'] = 'AKIA3LZKDPNW2S77UIC6'
+    os.environ['AWS_SECRET_ACCESS_KEY'] = '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'
+
+    polly_client = boto3.client('polly', region_name='us-west-2')
+    output_format = 'mp3'
+
+    for i, row in enumerate(rows):
+        response = polly_client.synthesize_speech(
+            Text=row[1],
+            VoiceId=character_voice_dict[row[0]],
+            OutputFormat=output_format,
+            Engine='neural'
+        )
+        file_path = os.path.join(output_folder, f'{i}.mp3')  # Generate a unique file path
+        with open(file_path, 'wb') as file:
+            file.write(response['AudioStream'].read())
+        i = i+1
+
+        
+
+
+        
+
+
+    
+    
+
+
+# Usage example
+txt_file_path = 'TestPlay.txt'
+txtToMp3(txt_file_path)

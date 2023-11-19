@@ -1,0 +1,13 @@
+from flask import Flask, request, send_file
+
+app = Flask(__name__)
+
+@app.route('/getDialog', methods=['POST'])
+def convert_number_to_mp3():
+    number = request.form.get('number')
+    play_name = request.form.get('PlayName')
+    filename = f"{play_name}_{number}.mp3"
+    return send_file(filename, mimetype='audio/mpeg')
+
+if __name__ == '__main__':
+    app.run()

@@ -1,0 +1,65 @@
+Character,Line,Gender,Emotion
+NARRATOR,HARPER sits at a table alone in a room. She is nervous and sad. Her FATHER enters and she tries to put on a happy face. He sits across the table from her,Male,Neutral
+FATHER,"Hi, Harper. I'm really happy you came.",Male,Positive
+HARPER,Happy Father's Day.,Female,Positive
+FATHER,"Thanks... wow, you're growing fast. How long has it been since I last saw you?",Male,Negative
+HARPER,It was Christmas.,Female,Neutral
+FATHER,That's right. Christmas. I lose track of time. Every day seems like another.,Male,Neutral
+HARPER,Did you get the pictures? The ones of the school play?,Female,Negative
+FATHER,I did. I loved your costume. Did you sing? You have a wonderful voice.,Male,Positive
+HARPER,I did.,Female,Neutral
+FATHER,Sing for me.,Male,Neutral
+HARPER,Now?,Female,Positive
+FATHER,Sure.,Male,Negative
+HARPER,I can't. Not in front of all these strangers.,Female,Negative
+FATHER,But you sang in front of the whole school.,Male,Negative
+HARPER,It's not the same.,Female,Positive
+FATHER,Come on.,Male,Positive
+HARPER,Maybe you can make it to the next play?,Female,Positive
+FATHER,I wish I could.,Male,Neutral
+HARPER,Maybe... if things go well here... you won't be here forever... will you?,Female,Neutral
+FATHER,I want to come home. I really do. I'm trying my best. I have another hearing next month. My lawyer says I might have a chance.,Male,Negative
+HARPER,"I hope so... we miss you, Daddy.",Female,Positive
+FATHER,How is your mother?,Male,Positive
+HARPER,She told me not to talk about her.,Female,Positive
+FATHER,She's still mad at me?,Male,Negative
+HARPER,You left us.,Female,Neutral
+FATHER,It wasn't my choice.,Male,Negative
+HARPER,"You didn't have to do that job. That's what made you end up here, isn't it?",Female,Positive
+FATHER,I wanted to take care of you all. I wanted to help. I lost my job and I didn't have any other options.,Male,Negative
+HARPER,Mom is supporting us now.,Female,Neutral
+FATHER,You have a good mother. I'm happy she's taking care of you. I just wish I could have done as good of a job.,Male,Neutral
+HARPER,You tried. I know you tried.,Female,Neutral
+FATHER,I'd do anything for you... But it wasn't enough.,Male,Neutral
+HARPER,Just having you home would be enough.,Female,Positive
+FATHER,If your mother will let me.,Male,Positive
+HARPER,"It's been hard for her. I've never seen her so sad. She cries every night. She never does it in front of me. She waits until she thinks I'm asleep. She has this picture of us in her room and she looks at it and cries. I want to help her, but I don't know how.",Female,Positive
+FATHER,You are the reason she keeps going. She's doing everything for you. She'll never give up on you.,Male,Negative
+HARPER,I'm worried she is giving up on you.,Female,Neutral
+FATHER,I can see why.,Male,Positive
+HARPER,Why can't she forgive you?,Female,Negative
+FATHER,I don't blame her. I can't even forgive myself.,Male,Neutral
+HARPER,"I forgive you, Daddy. I will always forgive you.",Female,Positive
+FATHER,"You're a good girl, Harper. I hope you'll always have a forgiving heart. And that no one ever does anything to change that.",Male,Positive
+HARPER,"What happened to you, Daddy? What changed you?",Female,Neutral
+FATHER,I don't know if I ever had a good heart.,Male,Positive
+HARPER,You were good to me.,Female,Negative
+FATHER,"I wanted to be different for you. I wanted to be better. Being a father changed me, it made me try harder to be good. But I guess it was too late.",Male,Neutral
+HARPER,It's never too late.,Female,Negative
+FATHER,"I want to believe that you're right. I wish it was as easy to be good as it is to be bad. No matter how hard I try, something always happens... something deceives me, tricks me, tempts me... I'm so weak.",Male,Positive
+HARPER,"Don't be sad, Daddy. Let's think of something good. Tell me something you want to do when you come home.",Female,Negative
+FATHER,"I want to take you to that pizza place, with all those games, the one we went to for your birthday. With all the lights and music... you did that dancing game... and you looked so happy. Everyone watched you dance and cheered. That's one of my best memories.",Male,Negative
+HARPER,I was very happy.,Female,Positive
+FATHER,And I want to see one of your school plays. I hope you get the lead in the next one. And I want to be in the front row.,Male,Positive
+HARPER,"I want that too, Daddy. Real bad.",Female,Neutral
+FATHER,I will do my best.,Male,Negative
+HARPER,Can I give you a hug?,Female,Positive
+FATHER,They won't let us. It's against the rules.,Male,Negative
+HARPER,I hate the rules.,Female,Negative
+FATHER,Harper. Don't hate the rules. Hating the rules is what got me in here. Love the rules and don't be like me.,Male,Negative
+HARPER,"Okay, Daddy.",Female,Neutral
+FATHER,Never do anything that keeps you from giving your child a hug. That's the worst part of this for me. Being away from you and your mother. Please ask your mother to come see me. I miss her.,Male,Negative
+HARPER,I will.,Female,Negative
+FATHER,"Goodbye, Harper.",Male,Positive
+HARPER,"Goodbye, Daddy.",Female,Negative
+NARRATOR,They stand and look like they want to hug. Lights go to black,Male,Negative
